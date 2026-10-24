@@ -1,0 +1,6 @@
+{
+  "name": "Heena AI",
+  "description": "Complete Native Android Smart Voice Assistant with Anime Avatar, Hindi & English Voice, Wake Word, AI Chat, and Phone Automation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

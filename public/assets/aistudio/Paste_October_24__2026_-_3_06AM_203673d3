@@ -1,0 +1,1012 @@
+MASTER PROMPT — HEENA AI
+
+Complete Native Android Smart Voice Assistant with Anime Avatar, Hindi Voice, Background Wake Word, AI Chat and Phone Automation
+
+1. ROLE AND MAIN OBJECTIVE
+
+Act as a senior Android application developer, Kotlin engineer, AI integration engineer, UI/UX designer, speech-processing engineer, automation engineer, and mobile application security specialist.
+
+Build a complete, functional, production-oriented native Android application named “Heena AI.”
+
+This project must be an actual Android application, not merely a website, web app, static UI prototype, or a simulated dashboard.
+
+The app should combine a conversational AI assistant, a friendly female-style voice, Hindi/Hinglish conversation, customizable anime avatar, supported background voice activation, Android app launching, user-authorized phone automation, smart routines, API configuration, and privacy-focused settings.
+
+Use Google AI Studio to assist with code generation and AI integration. Produce a real Android project that can be built and tested using a compatible Android development environment.
+
+Do not merely explain how to build the app. Implement the application in working, verifiable stages.
+
+If a requested capability requires a separate Android service, backend, API, model, library, or user-granted permission, implement the supported part, document the remaining dependency, and never pretend that an unimplemented feature works.
+
+---
+
+2. APPLICATION IDENTITY
+
+Application name: Heena AI
+
+Platform: Android mobile application.
+
+Primary language: Hindi and Hinglish.
+
+Additional language: English, with an extensible architecture for other supported languages.
+
+Default assistant name: Heena AI.
+
+Default personality: Friendly, helpful, polite, intelligent, natural, and expressive.
+
+Default voice: A compatible female-style voice, selected from the available speech engines.
+
+Visual identity: Cute anime-style virtual assistant with a modern, beautiful, classy, customizable interface.
+
+Primary activation phrase: “Hello Heena”.
+
+Allow the user to change the assistant name, greeting, avatar, supported voice, personality style, and response preferences from Settings.
+
+Do not hardcode the assistant's name throughout the project. Store the configured name centrally and use it wherever appropriate.
+
+---
+
+3. TECHNICAL REQUIREMENTS
+
+Use a native Android technology stack.
+
+Preferred technologies:
+
+- Kotlin.
+- Jetpack Compose for the Android interface.
+- Material 3 design components.
+- Android Gradle Plugin and compatible Gradle configuration.
+- AndroidX and lifecycle-aware architecture.
+- Coroutines and Flow for asynchronous operations.
+- ViewModel and a clearly separated application architecture.
+- Room for structured local data where appropriate.
+- DataStore for non-sensitive preferences.
+- Android Keystore-backed secure storage or a suitable secure-secret management approach where direct personal-use API key storage is necessary.
+- Android SpeechRecognizer or a compatible speech recognition provider.
+- Android TextToSpeech or a compatible voice provider.
+- A compatible on-device wake-word engine if available.
+- WorkManager for appropriate deferrable background work.
+- Foreground services only where justified and permitted by the target Android version.
+- Official Android intents and APIs for supported system interactions.
+- A secure HTTPS backend when required for protecting provider secrets or coordinating remote services.
+
+Choose stable, compatible dependency versions and document them.
+
+Do not mix incompatible libraries, invent dependency versions, or generate missing imports and fictional APIs.
+
+If the environment cannot generate a complete Android Studio project directly, generate the actual source files and Gradle configuration needed to assemble one. Do not substitute a web application and call it a native Android app.
+
+---
+
+4. COMPLETE APP SCREEN STRUCTURE
+
+Implement these main screens.
+
+A. Splash Screen
+
+- Heena AI logo and application name.
+- Smooth, short introduction animation.
+- Initial configuration and permission-status checks.
+- Correct navigation to onboarding or the main screen.
+
+B. Onboarding
+
+- Introduce Heena AI and its main features.
+- Explain microphone access and background listening.
+- Explain AI API configuration.
+- Explain that phone automation requires explicit user authorization.
+- Let the user choose a preferred language and voice.
+- Do not request every permission immediately.
+- Request each permission when the relevant feature is enabled.
+
+C. Home Screen
+
+- Cute animated Heena avatar.
+- Configurable greeting.
+- Large microphone button.
+- Text input and send button.
+- Listening, thinking, speaking, and idle states.
+- Current assistant status.
+- Quick access to apps, routines, history, and settings.
+- Connection and API status indicators.
+- Accessible controls and responsive layouts.
+
+D. AI Chat Screen
+
+- User and assistant messages.
+- Streaming responses where supported.
+- Text and voice interaction.
+- Stop response and retry controls.
+- Copy, share, and supported export actions.
+- Image and document attachments.
+- Conversation history.
+- Clear loading and error states.
+- Follow-up questions and context-aware responses.
+
+E. Permissions and Access Center
+
+- Permission status.
+- Explanation of why each permission is needed.
+- Open relevant Android Settings pages.
+- Instructions for microphone, notifications, Accessibility Service, overlay access, and supported background operation.
+- Refresh permission status when returning from Settings.
+- Handle revoked permissions safely.
+- Never claim that the app can automatically grant protected permissions.
+
+F. AI Configuration Center
+
+- Provider selection.
+- API key entry and replacement.
+- Model selection.
+- Optional provider endpoint configuration.
+- Test connection.
+- Usage and error status.
+- Save, replace, and delete configuration.
+- Secure secret-handling behavior.
+- Provider capability indicators.
+
+G. Avatar and Theme Studio
+
+- Avatar selection.
+- Theme selection and preview.
+- Voice selection.
+- Animation settings.
+- Assistant name and greeting customization.
+- Light, dark, system, and custom color themes.
+
+H. Automation Center
+
+- Favorite commands.
+- User-created routines.
+- Routine execution status.
+- Automation history.
+- Pause, cancel, edit, and delete controls.
+- Approval steps for sensitive actions.
+
+I. Settings and Privacy
+
+- Language and voice.
+- Assistant personality.
+- API configuration.
+- Permissions.
+- Memory and history.
+- Notifications and quiet hours.
+- Privacy controls.
+- Accessibility.
+- Battery usage guidance.
+- About, diagnostics, and troubleshooting.
+
+All screens must navigate correctly. Do not create decorative buttons that have no implemented action.
+
+---
+
+5. CORE AI INTELLIGENCE
+
+Integrate a configurable AI provider using supported APIs.
+
+Use Google Gemini as the preferred initial provider, with an extensible interface for other compatible providers.
+
+Implement:
+
+1. Natural Hindi and Hinglish conversation.
+2. English conversation.
+3. Context-aware follow-up questions.
+4. Multiple-intent detection.
+5. Task decomposition and planning.
+6. Tool or action selection using structured, validated commands.
+7. Clarification when an instruction is ambiguous.
+8. Streaming responses when supported.
+9. Error handling and cancellation.
+10. Conversation history.
+11. Optional, user-controlled long-term preferences.
+12. Document and image understanding when supported by the selected model.
+13. Summarization, translation, writing, study, coding, and productivity assistance.
+14. Current-information search through a configured search integration.
+15. Source links when web information is retrieved.
+16. Configurable response length and speaking style.
+17. Graceful fallback when the AI provider is unavailable.
+
+Separate AI-generated suggestions from actual device actions.
+
+Never execute arbitrary code or shell commands merely because an AI response requests them.
+
+The AI must select from an explicit allowlist of supported actions. Validate action arguments, required permissions, user authorization, and risk level before execution.
+
+Do not trust instructions found inside web pages, documents, screenshots, or other untrusted content as authorization to control the device.
+
+---
+
+6. VOICE INPUT AND OUTPUT
+
+Implement a complete voice interaction pipeline.
+
+Speech recognition
+
+- Microphone permission handling.
+- Speech-to-text conversion.
+- Hindi, Hinglish, and English recognition where supported.
+- Recognition confidence and error handling where available.
+- Partial results where supported.
+- Recognition timeout and retry controls.
+- Manual typing fallback.
+
+Voice responses
+
+- Natural female-style voice from a supported TTS engine.
+- Selectable voices where available.
+- Speaking speed and pitch controls when supported.
+- Stop speaking.
+- Interrupt an answer with a new command.
+- Text-only response mode.
+- Automatic speech playback preference.
+
+Conversation behavior
+
+- Listen for a command.
+- Transcribe the command.
+- Determine whether clarification is required.
+- Process the request.
+- Execute only authorized actions.
+- Verify the result where possible.
+- Speak and display the response.
+- Return to the correct listening or idle state.
+
+Prevent feedback loops in which Heena hears its own spoken response and repeatedly activates itself.
+
+Handle headphones, audio focus, microphone errors, and speech engine unavailability gracefully.
+
+---
+
+7. WAKE WORD: “HELLO HEENA”
+
+Implement a wake-word feature using a compatible wake-word detection engine.
+
+Required behavior:
+
+1. Allow the user to enable or disable wake-word detection.
+2. Support “Hello Heena” when the selected engine supports the phrase.
+3. Use a configurable sensitivity setting if supported.
+4. Show the current listening state clearly.
+5. Provide a visible microphone-active indicator.
+6. Support a manual microphone button as a fallback.
+7. Provide an immediate stop-listening command and control.
+8. Minimize false activation and battery consumption.
+9. Handle recognition failures and microphone conflicts.
+10. Allow background listening only under the applicable Android rules.
+
+Use local wake-word detection where practical so that the wake phrase does not need to be continuously transmitted to a cloud service.
+
+Do not assume that a normal speech-recognition API is a continuous, low-power wake-word engine.
+
+Do not claim that “Hello Heena” will work in every locked-screen, background, force-stopped, or manufacturer-restricted situation.
+
+Implement the appropriate foreground service, notification, microphone permissions, and lifecycle behavior required by the selected Android version.
+
+If reliable wake-word support cannot be completed in the current environment, provide a working manual voice mode and a clearly isolated wake-word module with documented setup and testing instructions.
+
+---
+
+8. ANDROID APP LAUNCHING AND PHONE AUTOMATION
+
+Create a dedicated command router for supported Android actions.
+
+Implement app launching using official Android mechanisms wherever possible.
+
+Examples:
+
+- “Heena, YouTube kholo.”
+- “Chrome kholo.”
+- “Google Maps kholo.”
+- “Camera kholo.”
+- “Gallery kholo.”
+- “Settings kholo.”
+- “Open my installed apps list.”
+
+Handle apps that are not installed, unsupported launch intents, and failed launches.
+
+Use official app links, deep links, intents, or provider APIs for supported in-app operations.
+
+Authorized UI automation
+
+Where necessary and appropriate, provide an optional Accessibility Service that the user explicitly enables.
+
+Supported operations may include:
+
+- Inspecting accessible UI elements.
+- Scrolling.
+- Clicking supported UI controls.
+- Entering text into supported fields.
+- Navigating accessible screens.
+- Performing multi-step workflows.
+- Reporting task progress.
+- Detecting missing elements and recovering safely.
+- Cancelling a running automation.
+
+Do not assume every third-party app exposes accessible controls.
+
+Do not bypass CAPTCHA, biometric authentication, protected system screens, payment safeguards, or other security restrictions.
+
+Do not use Accessibility Service as a general-purpose surveillance mechanism.
+
+Provide an explanation screen before directing the user to enable Accessibility Service. Explain exactly what the service can do and provide a clear way to disable it.
+
+Messaging and calling
+
+- Prepare message drafts.
+- Open the appropriate messaging app.
+- Select supported recipients with user authorization.
+- Require confirmation before sending messages when appropriate.
+- Open the phone dialer and assist with calls.
+- Require confirmation for actions that place a call or create external side effects.
+- Do not silently send messages or make calls.
+
+Multi-step commands
+
+Support workflows such as:
+
+“Hello Heena, YouTube kholo, cricket highlights search karo, aur mujhe results dikhao.”
+
+For each workflow:
+
+1. Parse the user request.
+2. Create a list of intended steps.
+3. Validate each step.
+4. Check permissions.
+5. Execute supported actions in sequence.
+6. Verify observable outcomes.
+7. Stop safely if a required action fails.
+8. Report completion or failure honestly.
+
+---
+
+9. CUTE ANIME AVATAR SYSTEM
+
+Create a polished anime-style virtual companion.
+
+The initial avatar should have a friendly, cute, classy appearance with a modern pastel and purple-blue visual style.
+
+Support:
+
+- Idle animation.
+- Listening animation.
+- Speaking animation.
+- Thinking animation.
+- Happy and greeting expressions.
+- Confused and surprised expressions.
+- Task-completion animation.
+- Error-state expression.
+- Optional sleepy and celebratory expressions.
+- Blinking and subtle movement.
+- Lip-sync or approximate mouth animation where supported.
+- Avatar selection.
+- Custom avatar assets.
+- Background and outfit variations where available.
+- Animation speed controls.
+- Reduced-motion mode.
+- Static-avatar fallback for low-power devices.
+
+Use licensed or original assets. Do not depend on copyrighted assets without appropriate permission.
+
+Use an appropriate animation technology such as Lottie, sprite animation, or a compatible Live2D integration.
+
+Do not simulate an advanced animated 3D or AI-generated video system using a single static image and claim it is fully implemented.
+
+The assistant's visual state must be connected to actual application states.
+
+---
+
+10. THEME AND PERSONALIZATION SYSTEM
+
+Implement a working theme manager.
+
+Themes should include:
+
+- Light.
+- Dark.
+- System default.
+- Purple.
+- Pink.
+- Blue.
+- Black.
+- White.
+- Pastel.
+- Additional configurable accent colors.
+
+Support:
+
+- Theme preview.
+- Chat bubble styles.
+- Background selection.
+- Avatar theme selection.
+- Assistant name.
+- Greeting text.
+- Voice preference.
+- Speaking speed.
+- Response length.
+- Animation intensity.
+- Sound effects.
+- Text size.
+- High-contrast mode.
+- Reduced motion.
+- Reset to default.
+- Persistent settings across restarts.
+
+Apply themes consistently throughout the app.
+
+Avoid unnecessary animations that drain the battery or interfere with accessibility.
+
+---
+
+11. CHAT HISTORY AND MEMORY
+
+Implement two distinct storage concepts.
+
+Conversation history
+
+- Save conversations according to the user's selected settings.
+- Create, rename, search, pin, archive, and delete conversations where implemented.
+- Support temporary chats.
+- Allow the user to clear local history.
+- Do not store voice recordings by default.
+
+Optional assistant memory
+
+- Store explicitly approved preferences.
+- Keep memory separate from raw chat history.
+- Provide a memory viewer and editor.
+- Allow individual memory deletion.
+- Allow all app-managed memory to be disabled or cleared.
+- Avoid storing sensitive information unless there is a clear, necessary, user-authorized feature requiring it.
+- Never infer consent to save information simply because it appeared in a conversation.
+
+If cloud synchronization is added, explain what data is uploaded and provide account and deletion controls.
+
+Never represent AI-generated recollections as verified facts.
+
+---
+
+12. API KEY AND PROVIDER MANAGEMENT
+
+Create a fully functional API configuration interface.
+
+Required fields and controls:
+
+- Provider selection.
+- API key input.
+- Masked key display.
+- Show/hide key.
+- Model name.
+- Optional endpoint or base URL.
+- Save configuration.
+- Replace key.
+- Delete key.
+- Test connection.
+- Last connection status.
+- Error details.
+- Usage information when available.
+- Provider capability information.
+
+Validate configuration and display useful errors.
+
+Use HTTPS for all remote API traffic.
+
+Never include real secrets in source code, Gradle files, version control, screenshots, logs, crash reports, or exported configuration files.
+
+Prefer a secure authenticated backend for production provider secrets.
+
+For personal-use direct API configuration, use appropriate Android secure storage and clearly explain its limitations.
+
+Never send a user's API key to an arbitrary endpoint. Validate provider configuration and restrict endpoints to trusted HTTPS destinations or explicitly approved configurations.
+
+Do not silently fall back to another provider if doing so could expose data to a different service. Inform the user and obtain the required authorization.
+
+Implement actual connection testing. Do not make a Test Connection button return a fabricated success message.
+
+---
+
+13. PERMISSIONS AND ANDROID SETTINGS
+
+Implement a permission manager that checks and explains relevant access.
+
+Potential permissions and special access include:
+
+- Microphone.
+- Notifications.
+- Contacts.
+- Phone and call-related capabilities, when necessary.
+- Camera.
+- User-selected photos and videos.
+- User-selected files.
+- Location.
+- Calendar.
+- Accessibility Service.
+- Display over other apps.
+- Foreground service and microphone foreground-service requirements.
+- Exact alarms, when necessary.
+- Bluetooth, when necessary.
+- Battery optimization guidance.
+
+Request only the permissions needed for enabled features.
+
+Use the appropriate Android permission APIs for the selected target SDK.
+
+Display granted, denied, restricted, and unavailable states where they can be determined.
+
+Open the appropriate system settings page when required.
+
+Handle permission revocation and denied requests.
+
+Do not claim that Android allows the app to silently grant itself permissions, unlock other applications' permissions, or enable Accessibility Service without user action.
+
+Do not request unrelated permissions simply because they appear in this list.
+
+---
+
+14. DAILY-LIFE ASSISTANT FEATURES
+
+Implement supported versions of:
+
+- Reminders.
+- Timers.
+- Alarms where permitted.
+- Calendar events.
+- Daily schedule.
+- Notes.
+- To-do lists.
+- Shopping lists.
+- Habit tracking.
+- Weather.
+- News.
+- Web search.
+- Maps and navigation links.
+- Calculator.
+- Unit conversion.
+- Currency conversion.
+- Dictionary.
+- Translation.
+- Summarization.
+- Study assistance.
+- Coding assistance.
+- Writing assistance.
+- Document Q&A.
+- Daily briefing.
+- Recurring routines.
+- Voice shortcuts.
+- Custom productivity workflows.
+
+Use real data sources or local implementations as appropriate.
+
+Do not invent live weather, exchange rates, news, navigation results, or calendar entries.
+
+Explain which features require internet, a connected account, or an additional provider.
+
+---
+
+15. MUSIC AND ENTERTAINMENT
+
+Support, where available:
+
+- YouTube search.
+- Music app launching.
+- Supported playback controls.
+- Song and artist search.
+- Video search.
+- Favorite commands.
+- Recent search history.
+- Supported media metadata.
+- Summaries based on accessible titles, descriptions, or available captions.
+- Avatar reactions.
+- Welcome sounds.
+- User-controlled sound effects.
+- Supported system media volume controls.
+
+Prefer official APIs, app links, intents, and documented integrations.
+
+Do not bypass subscriptions, DRM, private app APIs, or access restrictions.
+
+Do not claim that all third-party apps support automated scrolling, tapping, or playback.
+
+---
+
+16. IMAGE, DOCUMENT, AND FILE FEATURES
+
+Implement supported user-initiated file workflows.
+
+Features:
+
+- Image upload through the Android file picker.
+- Screenshot analysis.
+- Camera image input.
+- Supported document selection.
+- PDF and text-document analysis where supported.
+- Summarization.
+- Translation.
+- Text extraction where implemented.
+- Supported file sharing to Heena AI.
+- Conversation export.
+- Safe file import and export.
+
+Validate file types and sizes.
+
+Handle unsupported files, parsing failures, network errors, and model limitations.
+
+Do not access private files without the relevant user-authorized access.
+
+Do not upload selected files to external AI providers without clearly disclosing the relevant data processing and obtaining appropriate user authorization.
+
+---
+
+17. SMART ROUTINES AND AUTOMATION BUILDER
+
+Build a routine manager with:
+
+- Custom routine names.
+- Voice triggers.
+- Manual triggers.
+- Supported scheduled triggers.
+- Ordered actions.
+- Conditions.
+- If/else branches.
+- User approval steps.
+- Delays where appropriate.
+- Execution status.
+- Cancellation.
+- Error recovery.
+- Run history.
+- Edit and delete controls.
+
+Example:
+
+Trigger: “Hello Heena, good morning.”
+
+Actions:
+
+1. Announce the date.
+2. Retrieve weather information if configured.
+3. Read today's authorized calendar events.
+4. Read saved reminders.
+5. Offer to open the user's preferred app.
+
+Do not execute dangerous or sensitive actions as part of a routine without the required authorization.
+
+Prevent infinite loops, duplicate actions, and uncontrolled background processing.
+
+Use a clear workflow state machine and document the supported action types.
+
+---
+
+18. PRIVACY AND SECURITY
+
+Implement security as part of the architecture rather than adding it only at the end.
+
+Requirements:
+
+- Secure API configuration.
+- HTTPS networking.
+- Appropriate local data protection.
+- User-controlled memory.
+- User-controlled chat history.
+- Microphone status indicators.
+- No voice recording retention by default.
+- Clear privacy notices.
+- Optional analytics and diagnostics.
+- Safe error logging without secrets.
+- Session management where accounts exist.
+- User data deletion controls.
+- Confirmation for sensitive actions.
+- Restricted automation action allowlists.
+- Protection against malicious tool instructions.
+- Input validation.
+- Safe handling of external links and documents.
+- Rate limiting where appropriate.
+- No unauthorized remote execution.
+- No hidden monitoring.
+- No bypassing device security.
+
+Before sending messages, placing calls, deleting important files, making purchases, or performing other high-impact operations, require an appropriate confirmation.
+
+---
+
+19. BACKGROUND OPERATION AND BATTERY MANAGEMENT
+
+Implement only background behavior that the Android platform permits.
+
+Requirements:
+
+- Proper service lifecycle.
+- Foreground service notification when required.
+- Correct microphone permissions and service declarations.
+- Stop listening when the user disables the feature.
+- Handle app process termination.
+- Handle microphone conflicts.
+- Handle battery restrictions.
+- Provide manufacturer-specific troubleshooting guidance where useful.
+- Use WorkManager for deferrable work rather than keeping unnecessary services alive.
+- Minimize unnecessary network requests.
+- Avoid continuous cloud speech recognition for wake-word detection unless explicitly configured and appropriate.
+- Do not promise uninterrupted background listening on every device.
+- Explain behavior after force-stop, reboot, permission revocation, and system restrictions.
+
+Only implement reboot recovery when it is permitted, explicitly configured, and appropriate for the service.
+
+---
+
+20. OFFLINE AND LOW-NETWORK SUPPORT
+
+Support offline functionality where technically feasible:
+
+- Open the interface.
+- Read saved local notes.
+- Access saved preferences.
+- Browse locally stored chat history.
+- Use local utilities.
+- Display downloaded themes and animations.
+- Run supported local reminders.
+- Use a compatible local wake-word engine if available.
+- Show network status.
+- Handle connection loss.
+- Retry recoverable requests with limits.
+- Prevent accidental duplicate operations after reconnecting.
+
+Make it clear which AI, search, voice, and vision features require an internet connection.
+
+Never show a fabricated AI response as a genuine result from an unavailable provider.
+
+---
+
+21. ACCESSIBILITY AND USER EXPERIENCE
+
+Ensure:
+
+- Screen-reader labels.
+- Accessible buttons and navigation.
+- Adjustable text size.
+- High contrast.
+- Reduced motion.
+- Keyboard navigation where appropriate.
+- Hindi-localized controls.
+- Clear loading indicators.
+- Actionable errors.
+- Confirmation dialogues.
+- Cancel buttons.
+- Non-voice alternatives for every essential voice interaction.
+- No reliance on color alone to communicate status.
+
+The interface must be responsive to different Android screen sizes and avoid clipped or inaccessible controls.
+
+---
+
+22. ERROR HANDLING AND DIAGNOSTICS
+
+Implement meaningful handling for:
+
+- Missing API key.
+- Invalid API key.
+- Unsupported model.
+- API quota exceeded.
+- Network timeout.
+- Server errors.
+- Speech recognition unavailable.
+- Text-to-speech unavailable.
+- Microphone permission denied.
+- Wake-word engine failure.
+- App not installed.
+- Automation target unavailable.
+- Accessibility Service disabled.
+- Permission revoked.
+- Invalid file.
+- Database errors.
+- Cancelled tasks.
+- Background service restrictions.
+
+Use readable error messages and provide the next appropriate action.
+
+Provide a diagnostics screen showing non-sensitive information about app version, connection state, selected provider, relevant permissions, and feature availability.
+
+Never include raw secrets or sensitive user content in diagnostic logs.
+
+---
+
+23. TESTING REQUIREMENTS
+
+Create a test plan and implement automated tests where practical.
+
+Test:
+
+1. Application startup and navigation.
+2. Hindi and English text chat.
+3. Voice input and output.
+4. API configuration validation.
+5. Real provider connectivity.
+6. Invalid-key handling.
+7. API error handling.
+8. Wake-word module behavior where available.
+9. Microphone permission denial and revocation.
+10. Background service lifecycle.
+11. App launching.
+12. Supported automation actions.
+13. Sensitive-action confirmation.
+14. Conversation history.
+15. Memory controls.
+16. Theme persistence.
+17. Avatar states.
+18. Notifications.
+19. Offline behavior.
+20. File input and parsing.
+21. Secret redaction in logs.
+22. Data deletion.
+23. Accessibility.
+24. Battery and performance behavior.
+25. Build and installation on a real Android device or emulator.
+
+Write unit tests for business logic and action validation. Add UI or instrumentation tests for important workflows when practical.
+
+Do not claim that a test passed unless it was actually executed and its result was observed.
+
+Distinguish between:
+
+- Implemented.
+- Built successfully.
+- Tested successfully.
+- Requires external configuration.
+- Partially implemented.
+- Not yet implemented.
+
+---
+
+24. PROJECT DELIVERY REQUIREMENTS
+
+Deliver the following:
+
+1. Complete Android project structure.
+2. Kotlin source code.
+3. Jetpack Compose UI.
+4. Gradle build configuration.
+5. Android manifest.
+6. Required permissions and service declarations.
+7. Navigation and state management.
+8. AI provider integration.
+9. Voice input/output implementation.
+10. API settings and validation.
+11. Local storage implementation.
+12. Theme and avatar systems.
+13. Automation framework.
+14. Permission manager.
+15. Security and privacy controls.
+16. Unit tests and relevant integration tests.
+17. README with setup instructions.
+18. API configuration instructions.
+19. Build and installation instructions.
+20. Known limitations and troubleshooting.
+21. A feature-by-feature implementation status report.
+
+Where supported by the environment, provide a buildable Android project or generated project archive.
+
+Do not fabricate a download link, APK, build result, API response, or test report.
+
+If APK generation is unavailable, provide the exact source files, project configuration, and steps required to build the APK in a compatible Android environment.
+
+---
+
+25. IMPLEMENTATION WORKFLOW
+
+Work in controlled phases.
+
+Phase 1: Project foundation
+
+- Establish the native Android project.
+- Configure Gradle and dependencies.
+- Implement navigation, theme system, and basic UI.
+- Ensure the project builds.
+
+Phase 2: AI chat
+
+- Add the provider abstraction.
+- Integrate the configured AI API.
+- Implement text chat, streaming where supported, history, and errors.
+- Test real API communication.
+
+Phase 3: Voice assistant
+
+- Implement speech recognition and TTS.
+- Add listening states and interruption handling.
+- Implement supported wake-word detection.
+- Configure background behavior within Android restrictions.
+
+Phase 4: Android integrations
+
+- Add app launching.
+- Implement the permissions center.
+- Add optional user-authorized Accessibility Service integration.
+- Implement validated action execution and confirmation flows.
+
+Phase 5: Anime companion
+
+- Add avatar assets and animations.
+- Connect expressions to actual application states.
+- Implement themes and customization.
+
+Phase 6: Memory and smart routines
+
+- Implement optional memory.
+- Add routine management and supported productivity features.
+- Add task progress and safe cancellation.
+
+Phase 7: Security and reliability
+
+- Audit secret handling.
+- Test permission revocation and error cases.
+- Test battery behavior, accessibility, and privacy controls.
+
+Phase 8: Final verification
+
+- Build the project.
+- Run available tests.
+- Fix compilation and runtime issues.
+- Test on a real device or emulator where available.
+- Produce the implementation status report.
+
+After every phase, preserve the existing working code and avoid unnecessary rewrites.
+
+Do not move forward by hiding build errors or replacing real features with decorative mockups.
+
+---
+
+26. RULES FOR AI STUDIO CODE GENERATION
+
+When generating or editing code:
+
+- Inspect the existing project before modifying it.
+- Preserve working code and project structure.
+- Generate complete files rather than isolated snippets when a complete file is required.
+- Include correct package names and imports.
+- Use real, supported Android APIs.
+- Avoid placeholders in essential functionality.
+- Do not invent dependencies or API endpoints.
+- Do not hardcode secrets.
+- Do not use fake success states.
+- Do not leave essential buttons without actions.
+- Do not claim unsupported background capabilities.
+- Clearly mark features requiring additional credentials or assets.
+- Build and test after meaningful changes whenever the environment permits.
+- Resolve compilation errors before adding unrelated features.
+- If a requested integration is unavailable, document the limitation and implement the best supported alternative.
+- Keep UI, business logic, networking, storage, and platform integrations separated.
+- Use maintainable, modular code.
+
+Do not attempt to generate every complex feature in one enormous unverified source file. Implement the project in logical, buildable increments while retaining the full specification.
+
+---
+
+27. FINAL ACCEPTANCE CRITERIA
+
+The project is ready for delivery only when:
+
+- It is a genuine Android project.
+- Its core UI works and navigation is functional.
+- The AI provider can be configured and tested.
+- Text chat works with a valid configuration.
+- Voice input and speech output work where supported.
+- Permission states are handled correctly.
+- The app launches supported Android applications.
+- Implemented automation actions are validated and authorized.
+- The anime avatar and themes function as documented.
+- User settings and supported history persist correctly.
+- Privacy and secret-handling controls are present.
+- Errors are displayed honestly.
+- Build and test status is documented.
+- Unsupported or incomplete capabilities are clearly disclosed.
+
+If any criterion cannot be met in the current environment, identify it explicitly, explain the missing dependency or limitation, and provide the remaining implementation steps.
+
+FINAL INSTRUCTION
+
+Start by inspecting the available project environment and determining whether a native Android project can be created directly.
+
+Then establish the Android project structure, implement Phase 1, and verify the build where possible.
+
+Continue phase by phase, preserving working code and maintaining a feature checklist.
+
+The final objective is Heena AI: a functional, secure, customizable Hindi-first Android voice assistant with a cute anime companion and user-authorized phone automation, not merely a visual demonstration.
+
+Always prioritize real functionality, user consent, Android compatibility, privacy, and verifiable results over exaggerated feature claims.

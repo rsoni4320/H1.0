@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Heena AI</string>
+    <string name="accessibility_service_description">Heena AI phone automation assistant for navigating apps and executing user-authorized voice routines.</string>
+    <string name="notification_channel_wake_word">Heena Background Assistant</string>
+    <string name="notification_channel_wake_word_desc">Keeps Heena AI ready to respond to voice commands.</string>
+    <string name="default_assistant_name">Heena AI</string>
+    <string name="default_greeting">नमस्ते! मैं हीना हूँ। आज मैं आपकी क्या मदद करूँ?</string>
+    <string name="default_greeting_en">Hello! I am Heena. How can I help you today?</string>
+</resources>
